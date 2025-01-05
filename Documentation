@@ -1,0 +1,73 @@
+Project Architecture
+1. Data Loading and Preprocessing
+Data Loading:
+The dataset is imported using Python libraries such as pandas and numpy.
+Missing values are identified and handled using the KNNImputer from scikit-learn.
+Normalization and Encoding:
+Continuous variables are scaled using MinMaxScaler to normalize feature ranges.
+Categorical variables are encoded using LabelEncoder.
+Feature Filtering:
+Features with zero variance or significant missing values are removed during preprocessing.
+2. Feature Selection
+SelectFromModel:
+Uses tree-based models to identify important features.
+Mutual Information Regression:
+Selects features based on statistical dependency between features and the target variable.
+3. Dimensionality Reduction
+Principal Component Analysis (PCA):
+Reduces the dimensionality of the dataset while preserving significant variance.
+Enables comparison of model performance with and without PCA.
+4. Model Training and Evaluation
+Algorithms Trained:
+Neural Networks
+XGBoost
+Random Forest Regressor
+Gradient Boosting Regressor
+SVR (Support Vector Regressor)
+Decision Tree Regressor
+KNN Regressor
+Performance Evaluation:
+Models are evaluated using the following metrics:
+R² Score
+Mean Squared Error (MSE)
+Mean Absolute Error (MAE)
+Comparison of Results:
+Models are trained and tested with datasets before and after PCA application.
+Best Neural Network performance:
+Without PCA: R² = 0.045
+With PCA: R² = 0.067
+Best overall performance:
+XGBoost with 31 top features: R² = 0.16
+Design Decisions
+Data Preprocessing:
+Imputation of missing values ensures data integrity.
+Normalization is applied for consistency in feature scales.
+Feature Selection:
+SelectFromModel and mutual information regression ensure that only relevant features are used for modeling.
+PCA Application:
+PCA is applied to reduce dimensionality and simplify the dataset, enabling faster training and reducing overfitting.
+Algorithm Selection:
+A variety of algorithms are chosen to compare performance across different modeling approaches.
+Evaluation Metrics:
+R² score is used as the primary metric to assess model accuracy and generalizability.
+Algorithms Used
+Neural Networks:
+Implemented using TensorFlow/Keras.
+Architecture includes dense layers, dropout, and batch normalization.
+XGBoost:
+Utilized for its robust gradient boosting implementation.
+Achieved the best performance among tested algorithms.
+PCA:
+Dimensionality reduction to validate its impact on model accuracy.
+Random Forest, SVR, Decision Trees, Gradient Boosting, and KNN:
+Explored to provide a robust comparison and ensure model diversity.
+Dependencies
+Libraries Used
+Data Handling:
+pandas, numpy
+Preprocessing:
+scikit-learn (for imputation, scaling, PCA, feature selection)
+Model Training:
+tensorflow, keras-tuner, xgboost
+Visualization:
+matplotlib, seaborn
