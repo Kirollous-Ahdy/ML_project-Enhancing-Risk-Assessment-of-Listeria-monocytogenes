@@ -10,29 +10,41 @@ Key Features
 Data Collection: The project uses genomic data from 207 Listeria monocytogenes strains, sourced from various food products and environments. These data are publicly available via NCBI (SRA dataset).
 Bioinformatics Workflow: Genome assembly, gene prediction, and virulence gene detection are performed using tools like Velvet, Prodigal, and VFDB BLAST.
 Machine Learning Models: Various regression models (e.g., Random Forest, Ridge Regression, Support Vector Regression) are trained to predict the likelihood of illness based on genomic data.
+
 Methodology
+
 Bioinformatics Workflow
 Data Collection: 207 strains from various food sources (e.g., fish, meat, vegetables, etc.) were collected.
 Genome Assembly: Velvet was used to assemble the genomes.
 Gene Prediction: Prodigal was used to identify open reading frames (ORFs) and predict proteins.
 Virulence Gene Detection: The predicted proteins were aligned against the Virulence Factor Database (VFDB) to identify virulence genes in each strain.
 Matrix Construction: A matrix of virulence gene presence/absence was created for each strain.
+
 Machine Learning Workflow
 Data Preprocessing: Missing values were filled, and data were normalized using MinMaxScaler.
 Feature Selection: Various methods, including PCA and feature importance scores, were used to select the most relevant features.
 Model Selection: Several regression models were tested, including Random Forest, Lasso, Ridge, and Support Vector Regression, among others.
 Model Evaluation: The models were evaluated based on Mean Squared Error (MSE) and R² metrics.
+
 Results
 The project conducted several trials with different feature selection and extraction techniques:
 
 Without Feature Selection (with PCA): Random Forest achieved the best performance with an MSE of 467.37 and an R² of 0.1022.
+
 With Feature Selection (without PCA): Lasso Regression performed best before feature selection (MSE = 518.85), while Ridge Regression was the best after feature selection.
+
 With Feature Selection and PCA: Random Forest remained the best model before feature selection (MSE = 467.37), but the performance slightly decreased after feature selection (MSE = 482.80).
+
 Neural Network (NN)
+
 Without PCA: The best performance was achieved with a neural network, resulting in an R² score of 0.045.
+
 With PCA: When Principal Component Analysis (PCA) was applied, the best performance was slightly reduced, resulting in an MSE of 413.62 and an R² score of 0.067.
+
 XGBoost
+
 Best Performance: XGBoost, when using the top 31 features, achieved the highest performance with an R² score of 0.16.
+
 Requirements
 Python 3.x
 Tools (Velvet, Prodigal, VFDB BLAST)
