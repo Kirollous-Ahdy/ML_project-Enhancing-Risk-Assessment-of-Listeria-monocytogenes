@@ -77,5 +77,5 @@ By incorporating machine learning into microbial risk assessment, this project p
 # Acknowledgments
 The genomic data used in this project were provided by NCBI (SRA dataset).
 Special thanks to the authors of the related papers and tools (Velvet, Prodigal, VFDB BLAST, etc.).
-License
+# License
 This project is licensed under the MIT License - see the LICENSE file for details.
