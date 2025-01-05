@@ -1,56 +1,57 @@
+#Project Architecture
 Data Loading and Preprocessing:
 
-Dataset is imported and cleaned using Python's pandas and NumPy libraries. Missing values are imputed using KNNImputer, and features are scaled using MinMaxScaler.
-Categorical variables, if present, are encoded using LabelEncoder.
+-Dataset is imported and cleaned using Python's pandas and NumPy libraries. Missing values are imputed using KNNImputer, and features are scaled using MinMaxScaler.
+-Categorical variables, if present, are encoded using LabelEncoder.
 Feature Selection:
 
 Relevant features are selected using:
-SelectFromModel (based on feature importance from tree-based models).
-Mutual information regression.
+-SelectFromModel (based on feature importance from tree-based models).
+-Mutual information regression.
 Dimensionality Reduction:
 
-Principal Component Analysis (PCA) is applied to reduce the dimensionality of the dataset while preserving significant variance.
-Model Training and Evaluation:
+-Principal Component Analysis (PCA) is applied to reduce the dimensionality of the dataset while preserving significant variance.
+# Model Training and Evaluation:
 
 Various regression models are trained on the data, including:
-Neural Networks (using TensorFlow/Keras)
-XGBoost
-Random Forest Regressor
-Gradient Boosting Regressor
-SVR
-Decision Tree Regressor
-KNN Regressor
-Models are evaluated using R² Score, Mean Squared Error (MSE), and Mean Absolute Error (MAE).
+-Neural Networks (using TensorFlow/Keras)
+-XGBoost
+-Random Forest Regressor
+-Gradient Boosting Regressor
+-SVR
+-Decision Tree Regressor
+-KNN Regressor
+-Models are evaluated using R² Score, Mean Squared Error (MSE), and Mean Absolute Error (MAE).
 Performance Comparison:
 
-Model performance is compared with and without PCA to determine the impact of dimensionality reduction on predictive accuracy.
-Design Decisions
+-Model performance is compared with and without PCA to determine the impact of dimensionality reduction on predictive accuracy.
+# Design Decisions
 Data Preprocessing:
-Missing values are imputed using KNNImputer to maintain data integrity.
-Features are normalized using MinMaxScaler for consistency in input ranges.
+-Missing values are imputed using KNNImputer to maintain data integrity.
+-Features are normalized using MinMaxScaler for consistency in input ranges.
 Feature Selection:
-Select top features based on feature importance and mutual information regression.
+-Select top features based on feature importance and mutual information regression.
 PCA:
-Dimensionality is reduced iteratively, and models are tested with varying numbers of principal components.
+-Dimensionality is reduced iteratively, and models are tested with varying numbers of principal components.
 Model Evaluation:
-Models are tuned and evaluated based on R² score and other metrics to identify the best-performing model.
-Algorithms Used
+-Models are tuned and evaluated based on R² score and other metrics to identify the best-performing model.
+# Algorithms Used
 Neural Networks:
-Implemented using TensorFlow/Keras with layers for dense connections, dropout, and batch normalization.
+-Implemented using TensorFlow/Keras with layers for dense connections, dropout, and batch normalization.
 XGBoost:
-Achieved the best results among models by leveraging gradient boosting.
+-Achieved the best results among models by leveraging gradient boosting.
 PCA:
-Used for dimensionality reduction and comparison with original data performance.
+-Used for dimensionality reduction and comparison with original data performance.
 Random Forest, SVR, Decision Trees, and Gradient Boosting:
-Explored to ensure robustness and diversity in model selection.
-Dependencies
+-Explored to ensure robustness and diversity in model selection.
+# Dependencies
 Data Handling:
-pandas, numpy
+-pandas, numpy
 Preprocessing:
-scikit-learn for imputation, scaling, PCA, and feature selection
+-scikit-learn for imputation, scaling, PCA, and feature selection
 Model Training:
-tensorflow, xgboost, scikit-learn
+-tensorflow, xgboost, scikit-learn
 Visualization:
-matplotlib, seaborn
+-matplotlib, seaborn
 Additional Tools:
-keras-tuner for hyperparameter optimization
+-keras-tuner for hyperparameter optimization
